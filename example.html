@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example</title>
+</head>
+<body>
+<div id='output'>67 108 105 99 107 32 104 101 114 101 32 116 111 32 114 101 112 108 97 99 101 32 119 105 116 104 32 97 32 100 101 99 105 109 97 108 32 114 101 112 114 101 115 101 110 116 97 116 105 111 110 32 111 102 32 116 104 105 115 32 116 101 120 116 46</div>
+<script src="function.js"></script>
+<script>
+document.querySelector("#output").addEventListener("click", function() {
+    const element = document.querySelector("#output");
+    if (element) {
+        const decimalRepresentation = decimalToString(element.innerHTML, " ");
+        element.innerHTML = decimalRepresentation;
+    }
+});
+</script>
+</body>
+</html>

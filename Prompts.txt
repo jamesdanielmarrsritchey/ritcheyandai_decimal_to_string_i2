@@ -1,0 +1,46 @@
+jamesdanielmarrsritchey: ```function stringToDecimal(str, delimiter = " ") {
+    let decimalRepresentation = '';
+    for (let i = 0; i < str.length; i++) {
+        decimalRepresentation += str.charCodeAt(i).toString();
+        if (i < str.length - 1) {
+            switch (delimiter) {
+                case "\\n":
+                    decimalRepresentation += "\n";
+                    break;
+                case "\\t":
+                    decimalRepresentation += "\t";
+                    break;
+                case "":
+                    break;
+                default:
+                    decimalRepresentation += delimiter;
+            }
+        }
+    }
+    return decimalRepresentation;
+}
+
+GitHub Copilot: This JavaScript function `stringToDecimal` converts a string into its decimal representation. It takes two parameters: `str` and `delimiter`. `str` is the string to be converted, and `delimiter` is the character that separates the decimal values in the output string. The default delimiter is a space (" ").
+
+The function iterates over each character in the input string `str`. For each character, it gets the Unicode value using the `charCodeAt` method, converts it to a string, and appends it to `decimalRepresentation`.
+
+If the current character is not the last one in the string, the function also appends the delimiter to `decimalRepresentation`. The delimiter can be a newline ("\n"), a tab ("\t"), or any other string. If the delimiter is an empty string, no delimiter is appended.
+
+Finally, the function returns `decimalRepresentation`, which is a string of decimal values separated by the specified delimiter.
+
+jamesdanielmarrsritchey: Modify this function so that it converts from a decimal representation back to a string. Instead of applying the delimiter to the output, use it to understand the decimal represenation that is inputted.
+
+GitHub Copilot: Here's how you can modify the function to convert from a decimal representation back to a string. The function now takes a string of decimal values separated by a delimiter and converts it back to a string. It uses the `String.fromCharCode` method to convert each decimal value back to a character.
+
+```javascript
+function decimalToString(decimalRepresentation, delimiter = " ") {
+    let str = '';
+    let decimalValues = decimalRepresentation.split(delimiter);
+    for (let i = 0; i < decimalValues.length; i++) {
+        str += String.fromCharCode(parseInt(decimalValues[i]));
+    }
+    return str;
+}
+```
+
+In this function, `decimalRepresentation` is a string of decimal values separated by the specified delimiter. The function splits this string into an array of decimal values using the `split` method. It then iterates over each decimal value, converts it to an integer using the `parseInt` function, converts the integer to a character using the `fromCharCode` method, and appends the character to `str`. Finally, the function returns `str`.
